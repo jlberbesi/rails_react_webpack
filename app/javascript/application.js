@@ -6,7 +6,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./redux/store"
-import Greeting from "./components/Greeting.js"
+import Greeting from "./components/Greetings"
 
 function App() {
   return (
