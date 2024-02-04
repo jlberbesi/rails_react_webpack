@@ -1,29 +1,28 @@
-const path = require('path');
-const webpack = require('webpack');
+import { resolve } from 'path';
+import { optimize } from 'webpack';
 
-module.exports = {
-  mode: 'production',
-  devtool: 'source-map',
-  entry: {
-    application: './app/javascript/application.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-    ],
-  },
-  output: {
-    filename: '[name].js',
-    sourceMapFilename: '[name].js.map',
-    path: path.resolve(__dirname, 'app/assets/builds'),
-  },
-  plugins: [
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1,
-    }),
+export const mode = 'production';
+export const devtool = 'source-map';
+export const entry = {
+  application: './app/javascript/application.js',
+};
+export const module = {
+  rules: [
+    {
+      test: /\.(js)$/,
+      exclude: /node_modules/,
+      use: ['babel-loader'],
+    },
   ],
 };
+export const output = {
+  filename: '[name].js',
+  sourceMapFilename: '[name].js.map',
+  // eslint-disable-next-line no-undef
+  path: resolve(__dirname, 'app/assets/builds'),
+};
+export const plugins = [
+  new optimize.LimitChunkCountPlugin({
+    maxChunks: 1,
+  }),
+];
