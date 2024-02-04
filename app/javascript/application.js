@@ -20,4 +20,6 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root');
+const rootElement = React.createElement(App);
+ReactDOM.createRoot(root).render(rootElement);
